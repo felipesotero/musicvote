@@ -1,0 +1,60 @@
+<!-- 
+If you want to check the code, be my guest! My code is opened so this can help others to do the same as me.. Read code and learn doing it.
+-->
+<head>
+  <meta charset="utf-8">
+  <title>Music Vote</title>
+  <meta name="keywords" content="music, playlist, dj, party, fun, app, web">
+  <meta name="description" content="Create your party playlist live, during the party with your guests vote and prefered choices.">
+  <meta name="author" content="Luiz Sotero">
+  <meta class="viewport" name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <!-- Favicon -->
+  <!--link rel="shortcut icon" href="{% static 'img/favicon.ico' %}"-->
+  
+  <!-- Font -->
+  <link rel="stylesheet" href='http://fonts.googleapis.com/css?family=Arimo:400,700,400italic,700italic'>
+
+  <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
+  <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+  <link rel="stylesheet" href="{% static 'css/jquery.scrollbar.css' %}">
+  <!-- IE Styles-->
+  <link rel="stylesheet" href="{% static 'css/ie/ie.css' %}">
+  
+  <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <link rel="stylesheet" href="{% static 'css/ie/ie8.css' %}">
+  <![endif]-->
+</head>
+
+
+<body>
+    <header>
+      <h1>Todo List</h1>
+
+      <!-- add a form below the h1 -->
+      <form class="new-song">
+        <input type="text" name="text" placeholder="Type to search new songs" />
+      </form>
+    </header>
+  <div class="container">
+    <ul>
+      {{#each songs}}
+        {{> song}}
+      {{/each}}
+    </ul>
+  </div>
+</body>
+
+<template name="song">
+  <li class="{{#if checked}}checked{{/if}}">
+    <button class="delete">&times;</button>
+
+    <input type="checkbox" checked="{{checked}}" class="toggle-checked" />
+    <button class="up">Up</button><button class="down">Down</button>
+
+    <span class="text">{{text}}</span>
+    <span class="text"> - Upvotes: {{votes}}</span>
+  </li>
+</template>
